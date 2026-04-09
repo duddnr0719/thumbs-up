@@ -1,0 +1,5 @@
+# 백엔드 가상환경
+backend/venv/
+
+# 프론트엔드 패키지
+frontend/node_modules/
