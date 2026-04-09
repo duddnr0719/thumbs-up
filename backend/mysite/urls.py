@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from main.views import quiz_api, submissions_api
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/quiz/', quiz_api),
+    path('api/submissions/', submissions_api),
 ]

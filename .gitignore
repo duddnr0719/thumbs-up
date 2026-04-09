@@ -3,3 +3,8 @@ backend/venv/
 
 # 프론트엔드 패키지
 frontend/node_modules/
+
+# 환경 변수 파일
+.env
+.env.*
+!.env.example
