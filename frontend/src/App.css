@@ -28,7 +28,12 @@ body {
   color: var(--text-primary);
 }
 
-html,
+html {
+  overflow-y: scroll;
+  margin: 0;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   min-height: 100%;
@@ -87,6 +92,10 @@ p {
   );
   border-radius: 12px;
   border: 1px solid var(--accent-light);
+  width: 100%;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .quiz-header h1 {
@@ -106,6 +115,10 @@ p {
   padding: 1.25rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .progress-info {
@@ -339,6 +352,9 @@ p {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 750px;
+  margin: 0 auto;
+  min-width: 0;
 }
 
 .question-counter {
@@ -358,6 +374,9 @@ p {
   min-height: 280px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .question-title {
@@ -366,12 +385,15 @@ p {
   margin-bottom: 1.5rem;
   color: var(--text-primary);
   line-height: 1.5;
+  min-width: 0;
+  word-break: break-word;
 }
 
 .choices {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .choice-button {
@@ -385,6 +407,10 @@ p {
   transition: all 0.2s ease;
   text-align: left;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  word-break: break-word;
 }
 
 .choice-button:hover {
