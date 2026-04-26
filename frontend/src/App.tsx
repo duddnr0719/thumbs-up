@@ -115,11 +115,17 @@ function App() {
     setCurrentQuestion((prev) => Math.max(0, prev - 1));
   };
 
-  // 다음 질문으로
+  // 다음 질문으로 (현재 질문을 답변했을 때만 진행 가능)
   const handleNextQuestion = () => {
-    if (!quiz) return;
+    if (!quiz || !current) return;
+    // 현재 질문이 답변되지 않았으면 진행 불가
+    if (!answers[current.id]) {
+      setError("이 질문에 답변해주세요.");
+      return;
+    }
     if (currentQuestion < quiz.questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
+      setError(null);
     }
   };
 
@@ -259,9 +265,7 @@ function App() {
     <main className="app-shell">
       <QuizHeader title={quiz.quiz.title} description={quiz.quiz.description} />
 
-      <ProgressBar current={progress + 1} total={quiz.questions.length} />
-
-      {error && <div className="error-banner">{error}</div>}
+      <ProgressBar current={progress} total={quiz.questions.length} />
 
       {current && (
         <section className="quiz-container">
@@ -301,6 +305,7 @@ function App() {
               <button
                 type="button"
                 onClick={handleNextQuestion}
+                disabled={!current || !answers[current.id]}
                 className="btn btn-primary"
               >
                 다음 →
@@ -308,6 +313,16 @@ function App() {
             )}
           </div>
         </section>
+      )}
+
+      {/* 제출 중 로딩 오버레이 */}
+      {isSubmitting && (
+        <div className="submission-overlay">
+          <div className="submission-loading">
+            <div className="spinner"></div>
+            <p>결과를 생성 중입니다...</p>
+          </div>
+        </div>
       )}
     </main>
   );
