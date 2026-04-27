@@ -11,8 +11,8 @@ load_dotenv()
 
 
 client = OpenAI(
-    api_key=os.getenv("AI_KEY") or os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("AI_BASE_URL") or os.getenv("OPENAI_BASE_URL")
+    api_key=os.getenv("AI_KEY") or "Sda2J5ZieNE7N814Al1PfKDbLSSmTcok",
+    base_url=os.getenv("AI_BASE_URL") or "https://factchat-cloud.mindlogic.ai/v1/gateway"
 )
 
 
