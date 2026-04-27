@@ -23,11 +23,9 @@
 
 | 이름 | GitHub 링크                                     | 담당 영역        |
 | ---- | ----------------------------------------------- | ---------------- |
-| -    | [@github_username](https://github.com/username) | 전체 조율        |
-| -    | [@github_username](https://github.com/username) | React/TypeScript |
-| -    | [@github_username](https://github.com/username) | Django/AI 연동   |
-
-> 💡 **참고**: 위 표의 이름과 GitHub 링크를 각 참여자 정보로 채워주세요.
+| 김희성 | [@huiseong29](https://github.com/huiseong29) | 프론트엔드        |
+| 박영욱 | [@duddnr0719](https://github.com/duddnr0719) |  |
+| 유현재 | [@yuhyunjaes](https://github.com/yuhyunjaes) |  |
 
 ---
 
