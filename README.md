@@ -30,10 +30,18 @@
 ## 📸 프로젝트 스크린샷
 
 ### 메인 화면
+<img width="2809" height="1774" alt="image" src="https://github.com/user-attachments/assets/5b65bc08-56ef-49c4-8c25-334c60f37dd6" />
+
 
 ### 퀴즈 진행 화면
+<img width="2822" height="1769" alt="image" src="https://github.com/user-attachments/assets/784db35e-e17b-4b0c-99fa-8bcaaf7cfbfb" />
+<img width="2748" height="1766" alt="image" src="https://github.com/user-attachments/assets/884b4404-547c-4a41-ab0c-aa0567783e7c" />
+
+
 
 ### 결과 분석 화면
+<img width="2807" height="1728" alt="image" src="https://github.com/user-attachments/assets/d954c49f-a983-4bd4-a2ad-ff609fda9d5f" />
+
 
 ---
 
