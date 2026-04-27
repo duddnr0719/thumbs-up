@@ -19,15 +19,13 @@
 | **상태**       | ✅ Phase 1 완료                    |
 | **버전**       | v0.1.0                             |
 
-### 👥 참여자
+### 👩‍💻 팀 소개
 
-| 이름 | GitHub 링크                                     | 담당 영역        |
-| ---- | ----------------------------------------------- | ---------------- |
-| 김희성 | [@huiseong29](https://github.com/huiseong29) | 프론트엔드        |
-| 박영욱 | [@duddnr0719](https://github.com/duddnr0719) |  |
-| 유현재 | [@yuhyunjaes](https://github.com/yuhyunjaes) |  |
+| 김희성 | 박영욱 | 유현재 |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| [@huiseong29](https://github.com/huiseong29) | [@duddnr0719](https://github.com/duddnr0719) | [@yuhyunjaes](https://github.com/yuhyunjaes) |
+| <img src="https://avatars.githubusercontent.com/u/175691313?v=4" width="100"/> | <img src="https://avatars.githubusercontent.com/u/103187595?v=4" width="100"/> | <img src="https://avatars.githubusercontent.com/u/131428966?v=4" width="100"/> |
 
----
 
 ## 📸 프로젝트 스크린샷
 
