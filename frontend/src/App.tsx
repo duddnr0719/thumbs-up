@@ -36,7 +36,15 @@ type AIResult = {
 
 type QuizStep = "loading" | "quiz" | "result" | "error";
 
-const API_BASE = import.meta.env.DEV ? "http://127.0.0.1:8000" : "";
+function getErrorMessage(err: unknown, status?: number): string {
+  if (err instanceof TypeError && err.message.toLowerCase().includes("fetch")) {
+    return "백엔드 서버에 연결할 수 없습니다. 서버가 실행 중인지 확인하세요.";
+  }
+  if (status === 502) return "AI 응답 생성에 실패했습니다. 잠시 후 다시 시도해주세요.";
+  if (status !== undefined && status >= 500) return "서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+  if (status !== undefined && status >= 400) return "잘못된 요청입니다. 새로고침 후 다시 시도해주세요.";
+  return "알 수 없는 오류가 발생했습니다.";
+}
 
 function App() {
   // 데이터 상태
@@ -60,12 +68,14 @@ function App() {
       setError(null);
 
       try {
-        const response = await fetch(`${API_BASE}/api/quiz/`, {
+        const response = await fetch("/api/quiz/", {
           signal: controller.signal,
         });
 
         if (!response.ok) {
-          throw new Error(`Quiz API error: ${response.status}`);
+          setError(getErrorMessage(null, response.status));
+          setQuizStep("error");
+          return;
         }
 
         const payload: QuizResponse = await response.json();
@@ -73,9 +83,7 @@ function App() {
         setQuizStep("quiz");
       } catch (err) {
         if (err instanceof Error && err.name !== "AbortError") {
-          setError(
-            "백엔드에서 퀴즈를 불러오지 못했습니다. 서버가 실행 중인지 확인하세요.",
-          );
+          setError(getErrorMessage(err));
           setQuizStep("error");
         }
       }
@@ -149,7 +157,7 @@ function App() {
         })),
       };
 
-      const response = await fetch(`${API_BASE}/api/submissions/`, {
+      const response = await fetch("/api/submissions/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,17 +166,16 @@ function App() {
       });
 
       if (!response.ok) {
-        const errorBody = await response.text();
-        throw new Error(`Submission failed: ${response.status}\n${errorBody}`);
+        setError(getErrorMessage(null, response.status));
+        setQuizStep("error");
+        return;
       }
 
       const responseBody: AIResult = await response.json();
       setResult(responseBody);
       setQuizStep("result");
     } catch (err) {
-      setError(
-        "결과를 생성하는 데 실패했습니다. 백엔드 서버 또는 AI 환경을 확인하세요.",
-      );
+      setError(getErrorMessage(err));
       setQuizStep("error");
     } finally {
       setIsSubmitting(false);
